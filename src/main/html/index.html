@@ -42,10 +42,11 @@
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://petstore.swagger.wordnik.com/api/resources.json",
-                apiKey:"special-key",
+                discoveryUrl:"http://localhost:3000/api/v1/swagger_doc",
+                apiKey:"your-access-token",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
+                apiKeyName: "token",
                 supportedSubmitMethods: ['get', 'post', 'put']
             });
 
