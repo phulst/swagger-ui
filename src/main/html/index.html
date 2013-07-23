@@ -41,12 +41,20 @@
 
     <script type="text/javascript">
         $(function () {
+            // if docs are running locally, assume it's also querying a local url.
+            var hostname;
+            if (window.location.hostname.match(/(localhost|127.0.0.1)/)) {
+                hostname = "localhost:3000";
+            } else {
+                hostname = "staging.fanmouth.com";
+            }
+
             window.swaggerUi = new SwaggerUi({
-                discoveryUrl:"http://localhost:3000/api/v1/swagger_doc",
-                apiKey:"your-access-token",
-                dom_id:"swagger-ui-container",
-                supportHeaderParams: false,
-                apiKeyName: "token",
+                discoveryUrl:           "http://" + hostname + "/api/v1/swagger_doc",
+                //apiKey:               "your-access-token",
+                dom_id:                 "swagger-ui-container",
+                supportHeaderParams:    false,
+                apiKeyParameterName:    "token",
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete']
             });
 
@@ -62,12 +70,13 @@
         <a id="logo" href="http://swagger.wordnik.com">swagger</a>
 
         <form id='api_selector'>
+            <!--
             <div class='input icon-btn'>
                 <img id="show-pet-store-icon" src="images/pet_store_api.png" title="Show Swagger Petstore Example Apis">
             </div>
             <div class='input icon-btn'>
                 <img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">
-            </div>
+            </div> -->
             <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl"
                                       type="text"/></div>
             <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>

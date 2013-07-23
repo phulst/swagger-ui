@@ -4,7 +4,6 @@ wordnik*.zip
 *.iws
 .idea/
 .DS_Store
-dist/
 node_modules/
 lib/*.jar
 META-INF/
